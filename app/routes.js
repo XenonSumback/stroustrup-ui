@@ -34,6 +34,14 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
+         path: '/app/login',
+         name: 'login',
+         getComponent(nextState, cb) {
+           import('containers/LoginPage')
+             .then(loadModule(cb))
+             .catch(errorLoading);
+         },
+       }, {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {
@@ -42,5 +50,6 @@ export default function createRoutes(store) {
           .catch(errorLoading);
       },
     },
+
   ];
 }

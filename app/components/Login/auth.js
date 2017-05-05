@@ -23,10 +23,10 @@ module.exports = {
     },
 
     getToken: function(username, pass, cb) {
-        $.ajax({
-            type: 'POST',
-            url: '/api/obtain-auth-token/',
-            data: {
+        fetch('http://127.0.0.1:8000/api/obtain-auth-token/',{
+            method: 'POST',
+            mode:'no-cors',
+            body: {
                 username: username,
                 password: pass
             },

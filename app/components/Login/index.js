@@ -1,12 +1,12 @@
-var React = require('react')
-var auth = require('./auth')
+import React, { Component } from 'react'
+import auth from './auth'
 
-module.exports = React.createClass({
-    contextTypes: {
-        router: React.PropTypes.object.isRequired
-    },
+class Login extends Component {
+    // contextTypes =  {
+    //     router: React.PropTypes.object.isRequired
+    // };
 
-    handleSubmit: function(e) {
+    handleSubmit(e) {
         e.preventDefault()
 
         var username = this.refs.username.value
@@ -17,17 +17,15 @@ module.exports = React.createClass({
                 this.context.router.replace('/app/')
             }
         })
-    },
+    };
 
-    render: function() {
+    render() {
         return (
             <form onSubmit={this.handleSubmit}>
                 <input type="text" placeholder="username" ref="username" />
                 <input type="password" placeholder="password" ref="pass" />
                 <input type="submit" />
             </form>
-        )
+        );
     }
-})
-
-    export default Login
+}

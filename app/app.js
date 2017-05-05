@@ -16,6 +16,8 @@ import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { useScroll } from 'react-router-scroll';
 import 'sanitize.css/sanitize.css';
+import Login from 'containers/LoginPage';
+import auth from 'components/Login/auth'
 
 // Import root app
 import App from 'containers/App';
@@ -114,3 +116,20 @@ if (!window.Intl) {
 if (process.env.NODE_ENV === 'production') {
   require('offline-plugin/runtime').install(); // eslint-disable-line global-require
 }
+
+function requireAuth(nextState, replace) {
+    if (!auth.loggedIn()) {
+        replace({
+            pathname:'/app/login/',
+            state: {nextPathname: '/app/'}
+        })
+    }
+}
+
+ReactDOM.render(
+    <Router history={Router.browserHistory}>
+        <Route path='/app/login/' component={Login} />
+        <Route path='/app/' component={App} onEnter={requireAuth} />
+    </Router>,
+    document.getElementById('app')
+)

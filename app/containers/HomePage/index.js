@@ -17,9 +17,11 @@ import Login from '../../components/Login'
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <h1>
-        123
-      </h1>
+      <form onSubmit={this.handleSubmit}>
+          <input type="text" placeholder="username" ref="username" />
+          <input type="password" placeholder="password" ref="pass" />
+          <input type="submit" />
+      </form>
     );
   }
 }
