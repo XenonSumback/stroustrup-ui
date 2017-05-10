@@ -12,8 +12,7 @@
  */
 
 import React from 'react';
-import Header from '../../components/Header/';
-import BookList from '../../components/BookList/BookList'
+import Login from '../../components/Login'
 
 export default class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
@@ -24,8 +23,7 @@ export default class App extends React.PureComponent { // eslint-disable-line re
   render() {
     return (
       <div>
-      <Header />
-      <BookList />
+      <Login />
         {React.Children.toArray(this.props.children)}
       </div>
     );

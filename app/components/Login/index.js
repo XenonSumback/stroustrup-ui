@@ -1,29 +1,32 @@
 import React, { Component } from 'react'
+import auth from './auth'
 
+class Login extends Component {
+    // contextTypes =  {
+    //     router: React.PropTypes.object.isRequired
+    // };
 
+    handleSubmit = (e) => {
+        e.preventDefault()
 
-    class Login extends Component {
+        var username = this.refs.username.value
+        var pass = this.refs.pass.value
 
+        auth.login(username, pass, (loggedIn) => {
+            if (loggedIn) {
+                this.context.router.replace('/app/')
+            }
+        })
+    };
 
-       render(){
-           return(
-             <div id="login-form">
-                     <h1>Авторизация на сайте</h1>
-                     <fieldset>
-                         <form>
-                             <input type="email" value="Логин"  />
-                             <input type="password" value="Пароль" />
-                             <input type="submit" value="ВОЙТИ" />
-                             <footer className="clearfix">
-                                 <p><span className="info">?</span><a href="#">Забыли пароль?</a></p>
-                             </footer>
-                         </form>
-                     </fieldset>
-
-                 </div>
-           );
-       }
+    render() {
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <input type="text" placeholder="username" ref="username" />
+                <input type="password" placeholder="password" ref="pass" />
+                <input type="submit" />
+            </form>
+        );
     }
-
-
-    export default Login
+}
+export default Login
