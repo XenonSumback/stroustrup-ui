@@ -12,13 +12,31 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
+import BookList from '../../components/BookList/BookList'
 
-export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+  constructor(props) {
+    super(props)
+  }
   render() {
     return (
-      <h1>
-        Homepage container
-      </h1>
+      <BookList />
     );
   }
+
 }
+
+HomePage.propTypes = {
+  books: PropTypes.array.isRequired,
+}
+function mapStateToProps (state) {
+return {
+  books: state.books,
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch,
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Homepage);

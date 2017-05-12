@@ -9,6 +9,23 @@ import { LOCATION_CHANGE } from 'react-router-redux';
 
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
 
+//BookList reduser
+//Initial bookList state
+const bookListInitialState = fromJS({
+  books: null,
+});
+//Merge books into the global application state
+function bookListReducer(state = bookListInitialState, action) {
+  switch (action.type) {
+    /* istanbul ignore next */
+    case RECEIVE_BOOKS:
+      return Object.assign({}, state, {
+        books: action.books,
+      })
+    default:
+      return state
+  }
+}
 /*
  * routeReducer
  *
@@ -28,10 +45,10 @@ const routeInitialState = fromJS({
 function routeReducer(state = routeInitialState, action) {
   switch (action.type) {
     /* istanbul ignore next */
-    case LOCATION_CHANGE:
-      return state.merge({
-        locationBeforeTransitions: action.payload,
-      });
+      case 'GET_BOOKS_SUCCESS':
+        return state.merge({
+          books: action.payload,
+        });
     default:
       return state;
   }
@@ -44,6 +61,7 @@ export default function createReducer(asyncReducers) {
   return combineReducers({
     route: routeReducer,
     language: languageProviderReducer,
+    books:  bookListReducer,
     ...asyncReducers,
   });
 }
