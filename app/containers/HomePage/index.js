@@ -14,6 +14,7 @@ import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import { connect } from 'react-refetch'
 import BookList from '../../components/BookList/BookList'
+import Book from '../../components/Book'
 
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -24,10 +25,12 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
         return <div>loading error</div>
       } else if (booksFetch.fulfilled) {
         const books = booksFetch.value.results
+        const book = books[0]
         console.log(books)
         return (
           <div>
             <BookList books={books} />
+            <Book book={book} />
           </div>
           )
       }
