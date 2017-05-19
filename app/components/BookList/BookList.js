@@ -13,16 +13,16 @@ class BookList extends Component {
       this.handleClick = this.handleClick.bind(this);
     }
 
-  handleClick = (e) => {
+  handleClick = (e, i) => {
      e.preventDefault()
-    console.log('this is:',this,  e.target);
+    console.log('this is:',i,  e.target);
   }
    render(){
        return(
           <div>
           <h3>BookList</h3>
           {this.props.books.map((book, i) =>
-          <li key={i} ><a key={book} onClick={(e) => this.handleClick(e)}>{book.name_book}</a></li>
+          <li key={i} ><a key={i} href={book.id} onClick={(e) => this.handleClick(e, i)}>{book.name_book}</a></li>
         )}</div>
        );
    }
