@@ -50,6 +50,57 @@ export default function createRoutes(store) {
 
         importModules.catch(errorLoading);
       },
+    },
+    {
+      path: '/detail-book:id',
+      name: 'book',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/BookPage'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([component]) => {
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    },
+    {
+      path: '/detail-user:id',
+      name: 'user',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/ProfilePage'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([component]) => {
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    },
+    {
+      path: '/registration',
+      name: 'registration',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/RegistrationPage'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([component]) => {
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
     }, {
       path: '*',
       name: 'notfound',
