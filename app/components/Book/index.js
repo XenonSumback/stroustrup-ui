@@ -4,9 +4,11 @@ import Comments from '../Comments'
 
 
 
-export default class Book extends Component {
+class Book extends Component {
 
    render(){
+     const book = this.props.book
+     //const postLike = this.props
        return(
          <div>
            <b>Book: </b>{this.props.book.name_book}<br/>
@@ -17,18 +19,23 @@ export default class Book extends Component {
            <b>year: </b>{this.props.book.year}<br/>
            <b>publisher: </b>{this.props.book.publishing_house}<br/>
            <b>likes: </b>{this.props.book.likes} <br/>
-           <button  onClick={() => this.props.postLike()}>Like</button>
+           <button  onClick={() => {this.props.postLike()}}>Like</button>
            <Comments id={this.props.book.id} />
           </div>
        );
    }
+
+   test () {window.console.log('test')}
+
 }
 
-connect(props => ({
-  postLike: subject => ({
+export default connect(props => ({
+  postLike: () => ({
     postLikeResponse: {
-      url: `http://127.0.0.1:8000/books/${this.props.book.id}/like`,
-      method: 'POST',
+      url: `http://127.0.0.1:8000/books/1/like/`,
+      method: 'GET',
+      credentials: 'include',
+      mode: 'no-cors',
     }
   })
 }))(Book)
