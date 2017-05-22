@@ -31,6 +31,8 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
   //     return
   //   }
   // }
+
+
   render() {
     const { booksFetch } = this.props
       if (booksFetch.pending) {
@@ -39,12 +41,8 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
         return <div>loading error</div>
       } else if (booksFetch.fulfilled) {
         const books = booksFetch.value.results
-        this.setState({
-            books: books
-        });
         const book = books[0]
         console.log(books)
-        console.log(this.state.books)
         return (
           <div>
             <BookList books={books} />

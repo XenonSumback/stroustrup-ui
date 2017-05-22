@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-refetch'
+import Comments from '../Comments'
 
 
 
@@ -17,6 +18,7 @@ export default class Book extends Component {
            <b>publisher: </b>{this.props.book.publishing_house}<br/>
            <b>likes: </b>{this.props.book.likes} <br/>
            <button  onClick={() => this.props.postLike()}>Like</button>
+           <Comments id={this.props.book.id} />
           </div>
        );
    }
