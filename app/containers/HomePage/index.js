@@ -17,6 +17,20 @@ import BookList from '../../components/BookList/BookList'
 import Book from '../../components/Book'
 
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+
+    constructor(props) {
+        super(props);
+        this.state = {
+          books: {}
+        }
+      }
+  //
+  // handleResponse (response) {
+  //   if (response.headers.get('content-length') === '0' || response.status === 403) {
+  //     console.log("in")
+  //     return
+  //   }
+  // }
   render() {
     const { booksFetch } = this.props
       if (booksFetch.pending) {
@@ -25,8 +39,12 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
         return <div>loading error</div>
       } else if (booksFetch.fulfilled) {
         const books = booksFetch.value.results
+        this.setState({
+            books: books
+        });
         const book = books[0]
         console.log(books)
+        console.log(this.state.books)
         return (
           <div>
             <BookList books={books} />
