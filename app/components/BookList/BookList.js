@@ -24,11 +24,13 @@ class BookList extends Component {
   }
    render(){
        return(
-          <div>
+         <div>
           <h3>BookList</h3>
+          <div className="list-group">
           {this.props.books.map((book, i) =>
-          <li key={i} ><a key={i} href={book.id} onClick={(e) => this.handleClick(e, i)}>{book.name_book}</a></li>
-        )}</div>
+            <button key={i} type="button" className="list-group-item"  onClick={(e) => this.handleClick(e, i)}>{book.name_book}</button>)}
+          </div>
+        </div>
        );
    }
 }

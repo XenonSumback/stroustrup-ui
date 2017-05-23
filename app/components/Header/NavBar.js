@@ -2,11 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 global.jQuery = require ('jquery')
 require ('bootstrap')
-import { Button } from 'react-bootstrap';
 import Title from './Title';
-
-//import NavBar from './NavBar';
-//import HeaderLink from './HeaderLink';
 
 class NavBar extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
