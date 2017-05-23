@@ -20,24 +20,24 @@ class Book extends Component {
               <p className="text-center text-uppercase">
                 <strong>{book.name_book}</strong>
               </p><br/>
-              <p className="text-right">
+              <p className="text-left">
                 <strong>Author(s):</strong>
                 <ul className="list-unstyled">{book.authors.map((author, i) => <li key={i}>{author.name}</li>)}</ul>
               </p><br/>
-              <p className="text-right">
+              <p className="text-left">
                 <strong>Tag(s):</strong>
                 <ul className="list-unstyled">{book.tags.map((tag, i) => <li key={i}>{tag.tag_name}</li>)}</ul>
               </p><br/>
-              <p className="text-right">
+              <p className="text-left">
                 <strong>ISBN:</strong>  {book.ISBN}
               </p><br/>
-              <p className="text-right">
+              <p className="text-left">
                 <strong>year: </strong>  {book.year}
               </p><br/>
-              <p className="text-right">
+              <p className="text-left">
                 <strong>publisher: </strong>  {book.publishing_house}
               </p><br/>
-              <p className="text-right">
+              <p className="text-left">
                 <strong>likes: </strong>  {book.likes} <Button type="button" className="btn btn-info" onClick={() => {this.props.postLike()}}>Like</Button>
               </p><br/>
               <p className="text-center">

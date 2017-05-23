@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-refetch'
+import Comment from './Comment'
 
 
 
 export class Comments extends Component {
 
    render(){
+         const id_book = this.props.id
          const { commentFetch } = this.props
            if (commentFetch.pending) {
              return <div>Load comments</div>
@@ -14,10 +16,11 @@ export class Comments extends Component {
            } else if (commentFetch.fulfilled) {
              const comments = commentFetch.value
              console.log('comments were came',comments);
-             return( <div>
-             {comments.map((comment, i) =>
-              <li key={i} >{comment.comment}</li>)}
-            </div>
+             return(
+               <div>
+                 {comments.map((comment, i) =>
+                   <Comment key={i} comment={comment} />)}
+              </div>
           )
            }
 
@@ -37,7 +40,6 @@ export default connect(props => {
         'Content-Type': 'multipart/form-data; charset=utf-8'
       },
       then: (comments) => {
-        // console.log(comments);
         value: comments.filter(u => u.verified)
     }
   }
