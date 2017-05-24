@@ -16,12 +16,12 @@ class BookList extends Component {
     }
 
   handleClick = (e, i) => {
-     e.preventDefault()
+    e.preventDefault()
     console.log('this is:',i,  e.target);
+    var i = i+1
     var path= '/detail-book'+ i
     console.log(path)
     browserHistory.push(path);
-    console.log(this.props.books[i]);
   }
    render(){
        return(
