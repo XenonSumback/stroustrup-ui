@@ -13,9 +13,9 @@ class NavBar extends React.Component { // eslint-disable-line react/prefer-state
 
             <div className="collapse navbar-collapse">
                   <ul className="nav navbar-nav">
-                    <a className="navbar-brand" href="#">Stroustrup</a>
-                    <li className="active"><a href="#">Link <span className="sr-only">(current)</span></a></li>
-                    <li><a href="#">Link</a></li>
+                    <a className="navbar-brand" href="#"><Title /></a>
+                    <li className="active"><a href="#">Books <span className="sr-only">(current)</span></a></li>
+                    <li><a href="#">Profile</a></li>
                     <li>
                     <form className="navbar-form">
                       <div className="form-group">

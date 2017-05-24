@@ -9,8 +9,8 @@ class BookList extends Component {
   constructor(props) {
       super(props);
       this.state = {
+        books:[], book: {}
       };
-
       // This binding is necessary to make `this` work in the callback
       this.handleClick = this.handleClick.bind(this);
     }
@@ -19,7 +19,7 @@ class BookList extends Component {
      e.preventDefault()
     console.log('this is:',i,  e.target);
     var path= '/'
-    browserHistory.push('/detail-book&{i}');
+    browserHistory.push('/detail-book',{i});
     console.log(this.props.books[i]);
   }
    render(){
