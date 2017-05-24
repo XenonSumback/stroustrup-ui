@@ -29,9 +29,11 @@ export class Comments extends Component {
 }
 
 export default connect(props => {
+  const id = props.id
+  const url = 'http://127.0.0.1:8000/books/'+id+'/comments/'
   return {
     commentFetch: {
-      url:`http://127.0.0.1:8000/books/4/comments/`, //TODO: get value of id from props
+      url:url,
       method: 'GET',
       credentials: 'include',
       mode: 'no-cors',

@@ -11,7 +11,7 @@ class Book extends Component {
 
    render(){
      const book = this.props.book
-     //const postLike = this.props
+     const postLike = this.props
        return(
 
          <div >
@@ -54,13 +54,18 @@ class Book extends Component {
    }
 }
 
-export default connect(props => ({
+export default connect(props => {
+  const id = props.book.id
+  const url = 'http://127.0.0.1:8000/books/'+id+'/like/'
+  console.log('1',props)
+  return{
   postLike: () => ({
     postLikeResponse: {
-      url: `http://127.0.0.1:8000/books/1/like/`,
+      url: url,
       method: 'GET',
       credentials: 'include',
       mode: 'no-cors',
     }
   })
-}))(Book)
+}
+})(Book)

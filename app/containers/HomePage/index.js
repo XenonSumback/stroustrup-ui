@@ -41,10 +41,10 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
         return <div>loading error</div>
       } else if (booksFetch.fulfilled) {
         const books = booksFetch.value.results
-        const book = books[0]
+        const book = books[4]
         console.log(books)
         return (
-          <div>
+          <div className="container">
             <BookList books={books} />
             <Book book={book} />
           </div>
