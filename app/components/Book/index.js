@@ -20,14 +20,13 @@ class Book extends Component {
               <p className="text-center text-uppercase">
                 <strong>{book.name_book}</strong>
               </p><br/>
-              <p className="text-left">
                 <strong>Author(s):</strong>
-                <ul className="list-unstyled">{book.authors.map((author, i) => <li key={i}>{author.name}</li>)}</ul>
-              </p><br/>
-              <p className="text-left">
+                <ul className="list-unstyled">{book.authors.map((author, i) =>
+                  <li key={i}>{author.name}</li>)}</ul>
+              <br/>
                 <strong>Tag(s):</strong>
-                <ul className="list-unstyled">{book.tags.map((tag, i) => <li key={i}>{tag.tag_name}</li>)}</ul>
-              </p><br/>
+                <ul className="list-unstyled">{book.tags.map((tag, i) =>
+                  <li key={i}>{tag.tag_name}</li>)}</ul><br/>
               <p className="text-left">
                 <strong>ISBN:</strong>  {book.ISBN}
               </p><br/>
@@ -38,7 +37,8 @@ class Book extends Component {
                 <strong>publisher: </strong>  {book.publishing_house}
               </p><br/>
               <p className="text-left">
-                <strong>likes: </strong>  {book.likes} <Button type="button" className="btn btn-info" onClick={() => {this.props.postLike()}}>Like</Button>
+                <strong>likes: </strong>  {book.likes}
+                <Button type="button" className="btn btn-info" onClick={() => {this.props.postLike()}}>Like</Button>
               </p><br/>
               <p className="text-center">
                 <strong>Description: </strong>  {book.description}

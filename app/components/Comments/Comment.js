@@ -8,7 +8,6 @@ export default class Comment extends Component {
          const comment = this.props.comment
 
              return (
-               <div className='container'>
                  <div className="panel panel-default">
                    <div className="panel-heading">
                      <h3 className="panel-title">{comment.user}</h3>
@@ -18,8 +17,6 @@ export default class Comment extends Component {
                    </div>
                    <div className="panel-footer"><p className="text-left">{comment.date}</p></div>
                  </div>
-               </div>
-
               )
 
            }

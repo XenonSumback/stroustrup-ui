@@ -23,6 +23,7 @@ class BookList extends Component {
     console.log(path)
     browserHistory.push(path);
   }
+  
    render(){
        return(
          <div>

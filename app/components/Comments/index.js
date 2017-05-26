@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-refetch'
 import Comment from './Comment'
+import CreateComment from './CreateComment'
+
 
 
 
@@ -20,6 +22,7 @@ export class Comments extends Component {
                <div>
                  {comments.map((comment, i) =>
                    <Comment key={i} comment={comment} />)}
+                   <CreateComment id={id_book} />
               </div>
           )
            }
