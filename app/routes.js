@@ -69,11 +69,28 @@ export default function createRoutes(store) {
       },
     },
     {
-      path: '/detail-user:id',
+      path: '/detail-user/:id',
       name: 'user',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
           import('containers/ProfilePage'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([component]) => {
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    },
+    {
+      path: '/detail-user/:id/edit',
+      name: 'editProfile',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/EditProfilePage'),
         ]);
 
         const renderRoute = loadModule(cb);

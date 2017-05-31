@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-refetch'
-import User from '../../components/User/';
+import EditUser from '../../components/User/EditUser';
 
-export class ProfilePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+export class EditProfilePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
   constructor(props) {
       super(props);
@@ -10,7 +10,7 @@ export class ProfilePage extends React.PureComponent { // eslint-disable-line re
     }
     render() {
     const id = (this.props.params.id)
-    console.log(id);
+    console.log(this);
     const { userFetch } = this.props
       if (userFetch.pending) {
         return <div>Load book</div>
@@ -20,7 +20,7 @@ export class ProfilePage extends React.PureComponent { // eslint-disable-line re
         const user = userFetch.value
         return (
           <div className="container">
-            <User user={user} id={id} />
+            <EditUser user={user} id={id} />
           </div>
           )
       }
@@ -28,7 +28,7 @@ export class ProfilePage extends React.PureComponent { // eslint-disable-line re
 }
 
 export default connect(props => {
-  const id = (props.params.id)
+  const id = 1
   const url = 'http://127.0.0.1:8000/users/'+id+'/'
   return {
     userFetch: {
@@ -45,4 +45,4 @@ export default connect(props => {
       }
     }
   }
-})(ProfilePage)
+})(EditProfilePage)
