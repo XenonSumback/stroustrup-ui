@@ -12,11 +12,15 @@ export class Registration extends Component {
       }
       this.enableButton = this.enableButton.bind(this)
       this.disableButton = this.disableButton.bind(this)
+      this.handleSubmit = this.handleSubmit.bind(this)
 
     }
 
-  submit(data) {
-    alert(JSON.stringify(data, null, 4))
+
+  handleSubmit(data){
+    console.log(data);
+    this.props.postUser(data)
+
   }
   enableButton() {
     this.setState({ canSubmit: true })
@@ -29,7 +33,7 @@ export class Registration extends Component {
       const postUser = this.props
       return (
         <div className="container">
-          <Formsy.Form onSubmit={this.submit} onValid={this.enableButton} onInvalid={this.disableButton} className="login">
+          <Formsy.Form onSubmit={(data)=> this.handleSubmit(data)} onValid={this.enableButton} onInvalid={this.disableButton} className="login">
           <div className="row">
             <div className="col-md-4 col-md-offset-4">
               <div className="form-group">
@@ -62,8 +66,12 @@ export class Registration extends Component {
               </div>
             </div>
           </div>
-          <div className="buttons">
-           <button type="submit" className="form-control" disabled={!this.state.canSubmit}>Submit</button>
+          <div className="row">
+            <div className="col-md-4 col-md-offset-4">
+              <div className="buttons">
+               <button type="submit" className="form-control" disabled={!this.state.canSubmit}>Submit</button>
+              </div>
+            </div>
           </div>
 
            </Formsy.Form>
