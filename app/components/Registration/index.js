@@ -16,11 +16,10 @@ export class Registration extends Component {
 
     }
 
-
-  handleSubmit(data){
-    console.log(data);
-    this.props.postUser(data)
-
+  handleSubmit(userInfo){
+    console.log('userInfo',userInfo);
+    this.props.postUser(userInfo)
+    window.location.href = '/login';
   }
   enableButton() {
     this.setState({ canSubmit: true })
@@ -33,7 +32,7 @@ export class Registration extends Component {
       const postUser = this.props
       return (
         <div className="container">
-          <Formsy.Form onSubmit={(data)=> this.handleSubmit(data)} onValid={this.enableButton} onInvalid={this.disableButton} className="login">
+          <Formsy.Form onSubmit={(userInfo)=> this.handleSubmit(userInfo)} onValid={this.enableButton} onInvalid={this.disableButton} className="login">
           <div className="row">
             <div className="col-md-4 col-md-offset-4">
               <div className="form-group">
@@ -62,7 +61,7 @@ export class Registration extends Component {
             <div className="col-md-4 col-md-offset-4">
               <div className="form-group">
                 <label htmlFor="ConfirmPassword">ConfirmPassword</label>
-                <MyInput className="form-control" name="confirmpassword" id="ConfirmPassword" type="password" validations="equalsField:password" validationError="Passwords not match" required />
+                <MyInput className="form-control" name="confirm_password" id="ConfirmPassword" type="password" validations="equalsField:password" validationError="Passwords not match" required />
               </div>
             </div>
           </div>
@@ -80,7 +79,7 @@ export class Registration extends Component {
     }
 }
 export default connect(props => {
-  const url = 'http://127.0.0.1:8000/users/'
+  const url = 'http://127.0.0.1:8000/registration/'
   return{
   postUser: data => ({
     postUserResponse: {
@@ -88,7 +87,7 @@ export default connect(props => {
       method: 'POST',
       credentials: 'include',
       mode: 'no-cors',
-      body: JSON.stringify({ data })
+      body: JSON.stringify(data)
     }
   })
 }

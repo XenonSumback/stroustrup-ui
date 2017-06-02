@@ -65,7 +65,7 @@ export default connect(props => {
       method: 'GET',
       credentials: 'include',
       mode: 'no-cors',
-    }
+    },
   })
 }
 })(Book)

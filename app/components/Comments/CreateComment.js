@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-refetch'
 
 
-
-
 export class CreateComment extends Component {
   constructor(props) {
     super(props);
@@ -56,7 +54,8 @@ export default connect(props => {
         "user": 1,
         "date": date,
         "comment": comment,
-       })
+      }),
+      then: (response) => { window.location.reload() }
     }
   })
 }
