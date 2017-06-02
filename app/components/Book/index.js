@@ -31,14 +31,14 @@ class Book extends Component {
                 <strong>ISBN:</strong>  {book.ISBN}
               </p><br/>
               <p className="text-left">
-                <strong>year: </strong>  {book.year}
+                <strong>Year: </strong>  {book.year}
               </p><br/>
               <p className="text-left">
-                <strong>publisher: </strong>  {book.publishing_house}
+                <strong>Publisher: </strong>  {book.publishing_house}
               </p><br/>
               <p className="text-left">
-                <strong>likes: </strong>  {book.likes}
-                <Button type="button" className="btn btn-info" onClick={() => {this.props.postLike()}}>Like</Button>
+                <strong>Likes: </strong> <span className="badge">{book.likes} </span>
+                <button type="button" className="btn btn-info" onClick={() => {this.props.postLike()}}>Like</button>
               </p><br/>
               <p className="text-center">
                 <strong>Description: </strong>  {book.description}
