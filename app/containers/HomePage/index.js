@@ -14,23 +14,16 @@ import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import { connect } from 'react-refetch'
 import BookList from '../../components/BookList/BookList'
+import Paginator from '../../components/BookList/Paginator'
 
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
     constructor(props) {
         super(props);
         this.state = {
-          books: {}
+          books: {},
         }
       }
-  //
-  // handleResponse (response) {
-  //   if (response.headers.get('content-length') === '0' || response.status === 403) {
-  //     console.log("in")
-  //     return
-  //   }
-  // }
-
 
   render() {
     const { booksFetch } = this.props
@@ -39,7 +32,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
       } else if (booksFetch.rejected) {
         return <div>loading error</div>
       } else if (booksFetch.fulfilled) {
-        const books = booksFetch.value.results
+        const books = booksFetch.value
         return (
           <div className="container">
             <BookList books={books} />
@@ -49,9 +42,10 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
   }
 }
 export default connect(props => {
+  const url =`http://127.0.0.1:8000/books/`
   return {
     booksFetch: {
-      url:`http://127.0.0.1:8000/books/`,
+      url: url,
       method: 'GET',
       credentials: 'include',
       mode: 'no-cors',
@@ -62,6 +56,6 @@ export default connect(props => {
       then: (books) => {
         value: books.results.filter(u => u.verified)
     }
-  }
+  },
 }
 })(HomePage)
