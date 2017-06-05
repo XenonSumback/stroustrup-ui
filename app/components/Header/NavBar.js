@@ -9,16 +9,16 @@ export class NavBar extends React.Component { // eslint-disable-line react/prefe
 
   constructor(props) {
     super(props);
-    this.state = {isLoggedIn: false};
+    this.state = {isLoggedIn: this.props.user.is_logged_in};
   }
 
   render() {
     const logout = this.props
     let button = null;
     if (this.state.isLoggedIn) {
-      button = <a onClick={() => this.props.logout()}>login</a>;
+      button = <a onClick={() => this.props.logout()}>logout</a>;
     } else {
-      button = <a onClick={() => {window.location.href = '/login'}}>logout</a>;
+      button = <a onClick={() => {window.location.href = '/login'}}>login</a>;
     }
 
     return (
@@ -61,7 +61,7 @@ export default connect(props => {
       method: 'GET',
       credentials: 'include',
       mode: 'no-cors',
-      // then: () => {;}
+      then: () =>(window.location.href = '/login')
     }
   })
 }

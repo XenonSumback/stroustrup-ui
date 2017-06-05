@@ -9,15 +9,11 @@ module.exports = {
             method: 'POST',
             mode:'no-cors',
             credentials: "include",
-            /*headers: {
-              'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
-              'Content-Type': 'multipart/form-data; charset=utf-8'
-            },*/
             body: data
           }).then((response) => {
-            console.log(response.body)
+            console.log(response)
             window.location.href = '/';
-            response.json()
+            var response = response.json()
           })
         },
     getFormData(object) {
