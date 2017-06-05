@@ -18,6 +18,7 @@ export class EditUser extends Component {
   handleSubmit(userInfo){
     console.log('userInfo',userInfo);
     this.props.postUserInfo(userInfo)
+    window.location.href = '../'
   }
 
   enableButton() {
