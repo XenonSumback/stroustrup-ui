@@ -4,16 +4,14 @@ global.jQuery = require ('jquery')
 require ('bootstrap')
 import { Button } from 'react-bootstrap';
 import Comments from '../Comments'
+import Like from './Like'
 
 
-
-class Book extends Component {
+export default class Book extends Component {
 
    render(){
      const book = this.props.book
-     const postLike = this.props
        return(
-
          <div >
          <div className="row">
             <div className="col-md-8 col-md-offset-2">
@@ -31,15 +29,13 @@ class Book extends Component {
                 <strong>ISBN:</strong>  {book.ISBN}
               </p><br/>
               <p className="text-left">
-                <strong>year: </strong>  {book.year}
+                <strong>Year: </strong>  {book.year}
               </p><br/>
               <p className="text-left">
-                <strong>publisher: </strong>  {book.publishing_house}
+                <strong>Publisher: </strong>  {book.publishing_house}
               </p><br/>
-              <p className="text-left">
-                <strong>likes: </strong>  {book.likes}
-                <Button type="button" className="btn btn-info" onClick={() => {this.props.postLike()}}>Like</Button>
-              </p><br/>
+              <Like id={book.id} likes =  {book.likes} />
+              <br/>
               <p className="text-center">
                 <strong>Description: </strong>  {book.description}
               </p><br/>
@@ -47,25 +43,8 @@ class Book extends Component {
             </div>
           </div>
          <div >
-
-          </div>
-          </div>
+        </div>
+      </div>
        );
    }
 }
-
-export default connect(props => {
-  const id = props.book.id
-  const url = 'http://127.0.0.1:8000/books/'+id+'/like/'
-  console.log('1',props)
-  return{
-  postLike: () => ({
-    postLikeResponse: {
-      url: url,
-      method: 'GET',
-      credentials: 'include',
-      mode: 'no-cors',
-    }
-  })
-}
-})(Book)

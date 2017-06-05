@@ -24,10 +24,8 @@ export class Comments extends Component {
                    <Comment key={i} comment={comment} />)}
                    <CreateComment id={id_book} />
               </div>
-          )
-           }
-
-
+            )
+          }
    }
 }
 

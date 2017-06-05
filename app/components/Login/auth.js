@@ -16,6 +16,7 @@ module.exports = {
             body: data
           }).then((response) => {
             console.log(response.body)
+            window.location.href = '/';
             response.json()
           })
         },

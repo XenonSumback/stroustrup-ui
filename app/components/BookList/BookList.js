@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react'
-import Book from '../Book'
 import { browserHistory } from 'react-router';
-
+import Book from '../Book'
 
 
 class BookList extends Component {
@@ -23,7 +22,7 @@ class BookList extends Component {
     console.log(path)
     browserHistory.push(path);
   }
-  
+
    render(){
        return(
          <div>
