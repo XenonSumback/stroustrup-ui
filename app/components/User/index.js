@@ -18,6 +18,11 @@ export default class User extends Component {
    render(){
      const user = this.props.user
      const id = this.props.id
+     var editButton = null
+     if (id === localStorage.getItem('id')){
+       editButton = <button type="button" className="btn btn-success" onClick={(e) => {this.handleClick(e, id)}}>Edit Profile</button>
+     }
+
      console.log(id);
        return(
          <div >
@@ -37,7 +42,8 @@ export default class User extends Component {
               <p className="text-left">
                 <strong>Last name: </strong>  {user.last_name}
               </p><br/>
-              <button type="button" className="btn btn-success" onClick={(e) => {this.handleClick(e, id)}}>Edit Profile</button>
+              {editButton}
+
 
 
             </div>

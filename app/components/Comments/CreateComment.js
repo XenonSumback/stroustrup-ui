@@ -42,7 +42,8 @@ export default connect(props => {
   const id = props.id
   const url = 'http://127.0.0.1:8000/books/'+id+'/comments/'
   const date = new Date().toISOString().slice(0,10)
-  const user = 'user'
+  const user = localStorage.getItem('id')
+  console.log(localStorage);
   return{
   postComment: (comment) => ({
     postCommentResponse: {
@@ -51,7 +52,7 @@ export default connect(props => {
       credentials: 'include',
       mode: 'no-cors',
       body: JSON.stringify({
-        "user": 1,
+        "user": user,
         "date": date,
         "comment": comment,
       }),
