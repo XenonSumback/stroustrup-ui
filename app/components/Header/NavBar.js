@@ -14,13 +14,16 @@ export class NavBar extends React.Component { // eslint-disable-line react/prefe
 
   render() {
     const logout = this.props
-    let button = null;
+    let button = null,
+        profileButton = null
     if (this.state.isLoggedIn) {
       button = <a onClick={() => this.props.logout()}>logout</a>;
+      const id = this.props.user.user.id
+      var profilePath = '/detail-user/'+id
+      profileButton = <a href={profilePath}>Profile</a>
     } else {
       button = <a onClick={() => {window.location.href = '/login'}}>login</a>;
     }
-
     return (
       <nav className="navbar navbar-default">
         <div className="container-fluid">
@@ -30,7 +33,7 @@ export class NavBar extends React.Component { // eslint-disable-line react/prefe
                   <ul className="nav navbar-nav">
                     <a className="navbar-brand" href="/"><Title /></a>
                     <li className="active"><a href="/">Books</a></li>
-                    <li><a href="#">Profile</a></li>
+                    <li>{profileButton}</li>
                     <li>{button}</li>
                     <li>
                     <form className="navbar-form">
