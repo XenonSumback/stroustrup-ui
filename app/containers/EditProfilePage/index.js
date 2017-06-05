@@ -10,7 +10,9 @@ export class EditProfilePage extends React.PureComponent { // eslint-disable-lin
     }
     render() {
     const id = (this.props.params.id)
-    console.log(this);
+    if (id != localStorage.getItem('id')){
+      window.location.href = '../../' +  localStorage.getItem('id') + '/edit/';
+    }
     const { userFetch } = this.props
       if (userFetch.pending) {
         return <div>Load book</div>
@@ -28,7 +30,7 @@ export class EditProfilePage extends React.PureComponent { // eslint-disable-lin
 }
 
 export default connect(props => {
-  const id = 1
+  const id = localStorage.getItem('id')
   const url = 'http://127.0.0.1:8000/users/'+id+'/'
   return {
     userFetch: {

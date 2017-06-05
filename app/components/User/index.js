@@ -22,20 +22,18 @@ export default class User extends Component {
      if (id === localStorage.getItem('id')){
        editButton = <button type="button" className="btn btn-success" onClick={(e) => {this.handleClick(e, id)}}>Edit Profile</button>
      }
-
-     console.log(id);
        return(
          <div >
          <div className="row">
             <div className="col-md-8 col-md-offset-2">
-                <p className="text-left">
-                  <strong>Username: </strong>
-                  {user.username}
-                  </p><br/>
+              <p className="text-left">
+                <strong>Username: </strong>
+                {user.username}
+              </p><br/>
               <p className="text-left">
                 <strong>E-mail: </strong>
                 {user.email}
-                </p><br/>
+              </p><br/>
               <p className="text-left">
                 <strong>First Name: </strong>  {user.first_name}
               </p><br/>
@@ -43,13 +41,7 @@ export default class User extends Component {
                 <strong>Last name: </strong>  {user.last_name}
               </p><br/>
               {editButton}
-
-
-
             </div>
-          </div>
-         <div >
-
           </div>
           </div>
        );
