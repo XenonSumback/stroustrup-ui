@@ -37,6 +37,7 @@ export class BookList extends Component {
   }
 
    render(){
+
        return(
          <div>
           <h3>BookList</h3>
@@ -46,8 +47,8 @@ export class BookList extends Component {
           </div>
           <nav>
             <ul className="pager">
-              <li><a onClick={(e) => {this.paginatorClick(e, this.state.previous)}} >Previous</a></li>
-              <li><a onClick={(e) => {this.paginatorClick(e, this.state.next)}} >Next</a></li>
+              <li><button className="btn btn-default" type="button" disabled={!this.state.previous} onClick={(e) => {this.paginatorClick(e, this.state.previous)}} >Previous</button></li>
+              <li><button className="btn btn-default" type="button" disabled={!this.state.next} onClick={(e) => {this.paginatorClick(e, this.state.next)}} >Next</button></li>
             </ul>
           </nav>
         </div>
