@@ -47,7 +47,7 @@ export class BookList extends Component {
           <nav>
             <ul className="pager">
               <li><a onClick={(e) => {this.paginatorClick(e, this.state.previous)}} >Previous</a></li>
-              <li><a onClick={(e) => {this.paginatorClick(e, this.state.next)}}>Next</a></li>
+              <li><a onClick={(e) => {this.paginatorClick(e, this.state.next)}} >Next</a></li>
             </ul>
           </nav>
         </div>
@@ -67,11 +67,11 @@ export default connect(props => {
       refreshing: true,
       then: (data) => (
         obj.setState({
-          books: data.results.filter(u => u.verified),
+          books: data,
           next: data.next,
           previous: data.previous,
         })
-),
+      ),
     }
   })
 }
