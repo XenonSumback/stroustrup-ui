@@ -18,6 +18,7 @@ export default class Book extends Component {
               <p className="text-center text-uppercase">
                 <strong>{book.name_book}</strong>
               </p><br/>
+              <button type="button" className="btn btn-success pull-right">Take book</button><br/>
                 <strong>Author(s):</strong>
                 <ul className="list-unstyled">{book.authors.map((author, i) =>
                   <li key={i}>{author.name}</li>)}</ul>

@@ -35,8 +35,8 @@ export class EditUser extends Component {
      const user = this.props.user
      console.log(user);
        return(
-         <div >
-         <div className="row">
+         <div  className="container">
+
             <div className="col-md-8 col-md-offset-2">
             <Formsy.Form onSubmit={(userInfo)=> this.handleSubmit(userInfo)} onValid={this.enableButton} onInvalid={this.disableButton} className="login">
 
@@ -52,12 +52,20 @@ export class EditUser extends Component {
               <label htmlFor="last_name">Last name</label>
               <MyInput className="form-control" value={user.last_name} name="last_name" id="last_name" />
 
-                <button type="submit" className="form-control" disabled={!this.state.canSubmit}>Submit</button>
+              <label htmlFor="OldPassword">Old Password</label>
+              <MyInput className="form-control" name="username" id="OldPassword" required />
+
+              <label htmlFor="InputPassword">New Password</label>
+              <MyInput className="form-control" name="password" id="InputPassword" type="password" required />
+
+              <label htmlFor="ConfirmPassword">Confirm Password</label>
+              <MyInput className="form-control" name="confirm_password" id="ConfirmPassword" type="password" validations="equalsField:password" validationError="Passwords not match" required />
+
+              <br/>
+              <button type="submit" className="form-control" disabled={!this.state.canSubmit}>Submit</button>
             </Formsy.Form>
             </div>
-          </div>
-         <div >
-          </div>
+
           </div>
        );
    }

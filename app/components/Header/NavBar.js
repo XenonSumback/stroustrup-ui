@@ -32,17 +32,9 @@ export class NavBar extends React.Component { // eslint-disable-line react/prefe
             <div className="collapse navbar-collapse">
                   <ul className="nav navbar-nav">
                     <a className="navbar-brand" href="/"><Title /></a>
-                    <li className="active"><a href="/">Books</a></li>
+                    <li><a href="/">Books</a></li>
                     <li>{profileButton}</li>
                     <li>{button}</li>
-                    <li>
-                    <form className="navbar-form">
-                      <div className="form-group">
-                        <input type="text" className="form-control" placeholder="Search" />
-                      </div>
-                      <button type="submit" className="btn btn-default">Submit</button>
-                    </form>
-                    </li>
                   </ul>
             </div>
 

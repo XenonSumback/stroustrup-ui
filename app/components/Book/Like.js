@@ -22,7 +22,7 @@ export class Like extends Component {
   render(){
     return(
       <p className="text-left">
-        <strong>Likes: </strong> <span className="badge"> {this.state.likes}</span>
+        <strong>Likes: </strong> <span className="badge"> {this.state.likes} </span><p> </p>
         <button type="button" className="btn btn-info" onClick={() => {this.handleClick()}}>Like</button>
       </p>
     )

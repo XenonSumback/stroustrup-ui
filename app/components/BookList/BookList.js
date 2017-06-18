@@ -21,7 +21,6 @@ export class BookList extends Component {
   handleClick = (e, i) => {
     e.preventDefault()
     console.log('this is:',i,  e.target);
-    var i = i+1
     var path= '/detail-book'+ i
     console.log(path)
     browserHistory.push(path);
@@ -43,7 +42,7 @@ export class BookList extends Component {
           <h3>BookList</h3>
           <div className="list-group">
           {this.state.books.results.map((book, i) =>
-            <button key={i} type="button" className="list-group-item"  onClick={(e) => this.handleClick(e, i)}>{book.name_book}</button>)}
+            <button key={i} type="button" className="list-group-item"  onClick={(e) => this.handleClick(e, book.id)}>{book.name_book}</button>)}
           </div>
           <nav>
             <ul className="pager">

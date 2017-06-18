@@ -6,7 +6,8 @@ class Footer extends React.Component { // eslint-disable-line react/prefer-state
     return (
       <footer className="footer">
          <div className="container">
-           <span className="text-muted">Fooooooooooter element</span>
+         <span className="text-muted">Stroustrup</span>
+         <span className="text-muted pull-right">2017</span>
          </div>
       </footer>
     );
